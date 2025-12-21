@@ -59,7 +59,13 @@ class Bank:
         return None
 
     def transfer_account(self, account1, account2, amount):
-        if self.search_account(account1) and self.search_account(account2) is not None:
-            account1.withdraw(amount)
-            account2.deposit(amount)
-        
+        account1 = self.search_account(account1.number_account)
+        account2 = self.search_account(account2.number_account)
+        if account1 and account2:
+            if account1.withdraw(amount):
+                account1.deposit(amount)
+                print('Transfer successful')
+            else:
+                print('Transfer failed')
+        else:
+            print('Account not found')
