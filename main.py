@@ -8,7 +8,7 @@ while True:
     print("3 - Withdraw")
     print("4 - Transfer")
     print("5 - View balance")
-    print("6 - View balance")
+    print("6 - View all information")
     print("0 - Log out")
     option = input("Choose an option: ")
 
@@ -65,11 +65,9 @@ while True:
     elif option == "5":
         number = int(input("Account number: "))
         account = Bank.search_account(number)
-
         if account:
             print("\n--- ACCOUNT INFO ---")
-            print(f"Number: {account.number_account}")
-            print(f"Customer: {account.customer.name}")
+            print(f"Number Account: {account.number_account}")
             print(f"Balance: {account.balance}")
         else:
             print("Account not found")
@@ -79,8 +77,10 @@ while True:
         else:
             for acc in Bank.list_of_Accounts:
                 print("\n------------------")
-                print(f"Account: {acc.number_account}")
                 print(f"Customer: {acc.customer.name}")
+                print(f"Address: {acc.customer.address}")
+                print(f"{acc.customer.document_type}: {acc.customer.document}")
+                print(f"Account: {acc.number_account}")
                 print(f"Balance: {acc.balance}")
 
     elif option == "0":

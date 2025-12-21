@@ -39,7 +39,7 @@ class Account:
     def print_balance(self):
         print('--------------------------------------')
         print(f'Number account: {self.number_account}')
-        print(f'Name:{self.customer.name}')
+        print(f'Name:{self.customer.name}Kz ')
         print(f"Balance:{self.balance}")
 
 
