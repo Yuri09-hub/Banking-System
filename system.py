@@ -37,6 +37,7 @@ class Account:
             return False
 
     def print_balance(self):
+        print(f'Number account: {self.number_account}')
         print(f'Name:{self.customer.name}')
         print(f"Balance:{self.balance}")
 
@@ -52,7 +53,8 @@ class Bank:
         account = Account(number_account, customer)
         Bank.list_of_Accounts.append(account)
 
-    def search_account(self, number_account):
+    @staticmethod
+    def search_account(number_account):
         for account in Bank.list_of_Accounts:
             if account.number_account == number_account:
                 return account
@@ -70,8 +72,8 @@ class Bank:
         else:
             print('Account not found')
 
-    @staticmethod
-    def print_accounts():
+    def print_accounts(self):
         for account in Bank.list_of_Accounts:
+            print(f"Name of Bank:{self.name}")
             print(f"Customer: {account.customer}")
             print(f"Account: {account.number_account}")
