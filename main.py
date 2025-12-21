@@ -1,4 +1,7 @@
 from system import *
+from datetime import datetime
+
+date = datetime.today()
 
 while True:
     print("\n===== BANKING SYSTEM =====\n")
@@ -12,23 +15,14 @@ while True:
     option = input("Choose an option: ")
 
     if option == "1":
-        Name = str(input("Enter your full name: "))
+        Name = str(input("Enter your full name: ")).lower().capitalize()
 
         document_type = str(input("Enter your document type(Passport/Identity Card): "))
-        while document_type != 'Passport' and document_type != 'Identity Card':
-            document_type = str(input("Enter your document type(Passport/Identity Card): "))
         Document = str(input(f"Enter your {document_type} number: "))
-        #No endereco digitei 123 e ele aceitou
-        #Para te ficar mais fácil, pede por parte
-        #Primeiro pede provincia
-        #Depois pede bairro
-        #Depois pede numeroa da rua ou SN "sem número"
-        #Depois pede número da casa, em produção isso não passa
 
-        Address = str(input("Enter your address: "))
-        Customer = customer(Name, Address, document_type, Document)
+
+        Customer = customer(Name, , document_type, Document)
         Creat = Bank.creat_account(Customer)
-
         print("Account created successfully!")
         Creat.print_balance()
 
@@ -78,6 +72,7 @@ while True:
         if account:
             account.print_balance()
             account.customer.print_customer()
+            print(f"Consultation date: {date.today()}")
         else:
             print("Account not found")
 
