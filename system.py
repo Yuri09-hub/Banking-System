@@ -37,6 +37,7 @@ class Account:
             return False
 
     def print_balance(self):
+        print('--------------------------------------')
         print(f'Number account: {self.number_account}')
         print(f'Name:{self.customer.name}')
         print(f"Balance:{self.balance}")
@@ -57,6 +58,7 @@ class Bank:
         Bank.Existing_account_numbers.append(number_account)
         account = Account(number_account, customer)
         Bank.list_of_Accounts.append(account)
+        return account
 
     @staticmethod
     def search_account(number_account):
