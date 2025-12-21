@@ -68,7 +68,7 @@ while True:
         if account:
             print("\n--- ACCOUNT INFO ---")
             print(f"Number Account: {account.number_account}")
-            print(f"Balance: {account.balance}")
+            print(f"Balance: {account.balance}kz")
         else:
             print("Account not found")
     elif option == "6":
@@ -81,7 +81,7 @@ while True:
                 print(f"Address: {acc.customer.address}")
                 print(f"{acc.customer.document_type}: {acc.customer.document}")
                 print(f"Account: {acc.number_account}")
-                print(f"Balance: {acc.balance}")
+                print(f"Balance: {acc.balance}kz")
 
     elif option == "0":
         print("Exiting system...")

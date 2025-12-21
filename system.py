@@ -83,4 +83,4 @@ class Bank:
         for account in Bank.list_of_Accounts:
             print(f"Name of Bank:{self.name}")
             print(f"Customer: {account.customer}")
-            print(f"Account: {account.number_account}")
+            print(f"Account: {account.number_account} kz")
