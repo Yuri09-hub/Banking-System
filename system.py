@@ -1,18 +1,20 @@
 import random
 from datetime import datetime
 
+
 class customer:
     def __init__(self, name, Province, document_type, document):
         self.name = name
         self.Province = Province
         self.document_type = document_type
         self.document = document
-        
+        self.data = datetime.today()
 
     def print_customer(self):
         print(f"Name: {self.name}")
         print(f"Address:{self.Province}")
         print(f"{self.document_type}_ID:{self.document}")
+        print(f"Date: {self.data}")
 
 
 class Account:
@@ -91,5 +93,6 @@ class Bank:
         print(f"===== {self.name} =====")
         for account in Bank.list_of_Accounts:
             account.customer.print_customer()
+            print("--------------------")
             account.print_balance()
             print("--------------------")
