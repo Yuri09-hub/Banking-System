@@ -1,16 +1,17 @@
 import random
-
+from datetime import datetime
 
 class customer:
-    def __init__(self, name, address, document_type, document):
+    def __init__(self, name, Province, document_type, document):
         self.name = name
-        self.address = address
+        self.Province = Province
         self.document_type = document_type
         self.document = document
+        
 
     def print_customer(self):
         print(f"Name: {self.name}")
-        print(f"Address:{self.address}")
+        print(f"Address:{self.Province}")
         print(f"{self.document_type}_ID:{self.document}")
 
 
@@ -20,26 +21,27 @@ class Account:
         self.balance = 0.0
         self.number_account = number_account
 
-    #nessa função ele está aceitando valores vazios o que leva o teu projeto crashar
-    #tens 2 formas de resolver isso, ou envolva isso dentro de um try/catch e no catch escreva mensagem
-    # "dados inválidos" ou não deixe o user digitar valores vazios
     def deposit(self, value):
-        if value <= 0:
-            print(f"You cannot deposit negative or zero values")
-            return False
-        else:
+        try:
+            value = float(value)
             self.balance += value
             return True
-    #Mesma observação que no método deposit        
+        except ValueError and value <= 0:
+            print('Error: undefined values')
+            return False
 
     def withdraw(self, value):
-        if self.balance >= value:
+        try:
+            value = float(value)
             self.balance -= value
             return True
-        else:
-            print(f"Not enough money")
+        except value > self.balance:
+            print('Not enough money')
             return False
-       #Mesma observação que no método deposit, ele aceita valores vazios
+        except ValueError and value <= 0:
+            print('Error: undefined values')
+            return False
+
     def print_balance(self):
         print(f'Number account: {self.number_account}')
         print(f"Balance:{self.balance}Kz")
