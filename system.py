@@ -69,3 +69,9 @@ class Bank:
                 print('Transfer failed')
         else:
             print('Account not found')
+
+    @staticmethod
+    def print_accounts():
+        for account in Bank.list_of_Accounts:
+            print(f"Customer: {account.customer}")
+            print(f"Account: {account.number_account}")
