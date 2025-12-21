@@ -2,16 +2,16 @@ import random
 
 
 class customer:
-    def __init__(self, name, address, document, type):
+    def __init__(self, name, address, document_type, document):
         self.name = name
         self.address = address
-        self.type = type
+        self.document_type = document_type
         self.document = document
 
     def print_customer(self):
         print(f"Name: {self.name}")
         print(f"Address:{self.address}")
-        print(f"{self.type}_ID:{self.document}")
+        print(f"{self.document_type}_ID:{self.document}")
 
 
 class Account:
@@ -44,12 +44,17 @@ class Account:
 
 class Bank:
     list_of_Accounts = []
+    Existing_account_numbers = []
 
     def __init__(self, name):
         self.name = name
 
-    def creat_account(self, customer):
+    @staticmethod
+    def creat_account(customer):
         number_account = random.randint(10000000000000, 99999999999999)
+        while number_account in Bank.Existing_account_numbers:
+            number_account = random.randint(10000000000000, 99999999999999)
+        Bank.Existing_account_numbers.append(number_account)
         account = Account(number_account, customer)
         Bank.list_of_Accounts.append(account)
 

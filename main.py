@@ -1,6 +1,14 @@
-import system
+from system import *
 
-Customer = system.customer()
-Bank = system.Bank()
-Customer.name = str(input("Enter Customer full Name: "))
-Customer.type = str(input("Enter Customer Type of Document(Passport/Identity Card): "))
+
+Bank("Bank of Unit Credit")
+while True:
+    print("\n===== BANKING SYSTEM =====\n")
+    print("1 - Create account")
+    print("2 - Deposit")
+    print("3 - Withdraw")
+    print("4 - Transfer")
+    print("5 - View balance")
+    print("6 - View balance")
+    print("0 - Log out")
+    option = input("Choose an option: ")
