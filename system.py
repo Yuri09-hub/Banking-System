@@ -37,10 +37,8 @@ class Account:
             return False
 
     def print_balance(self):
-        print('--------------------------------------')
         print(f'Number account: {self.number_account}')
-        print(f'Name:{self.customer.name}Kz ')
-        print(f"Balance:{self.balance}")
+        print(f"Balance:{self.balance}Kz")
 
 
 class Bank:
@@ -80,7 +78,12 @@ class Bank:
             print('Account not found')
 
     def print_accounts(self):
+        if not Bank.list_of_Accounts:
+            print("No accounts registered")
+            return
+
+        print(f"===== {self.name} =====")
         for account in Bank.list_of_Accounts:
-            print(f"Name of Bank:{self.name}")
-            print(f"Customer: {account.customer}")
-            print(f"Account: {account.number_account} kz")
+            account.customer.print_customer()
+            account.print_balance()
+            print("--------------------")
