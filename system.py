@@ -20,6 +20,9 @@ class Account:
         self.balance = 0.0
         self.number_account = number_account
 
+    #nessa função ele está aceitando valores vazios o que leva o teu projeto crashar
+    #tens 2 formas de resolver isso, ou envolva isso dentro de um try/catch e no catch escreva mensagem
+    # "dados inválidos" ou não deixe o user digitar valores vazios
     def deposit(self, value):
         if value <= 0:
             print(f"You cannot deposit negative or zero values")
@@ -27,6 +30,7 @@ class Account:
         else:
             self.balance += value
             return True
+    #Mesma observação que no método deposit        
 
     def withdraw(self, value):
         if self.balance >= value:
@@ -35,7 +39,7 @@ class Account:
         else:
             print(f"Not enough money")
             return False
-
+       #Mesma observação que no método deposit, ele aceita valores vazios
     def print_balance(self):
         print(f'Number account: {self.number_account}')
         print(f"Balance:{self.balance}Kz")

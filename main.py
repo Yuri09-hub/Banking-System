@@ -13,8 +13,21 @@ while True:
 
     if option == "1":
         Name = str(input("Enter your full name: "))
+        #bug fix:Nesse momento ele espera que o usuário digiete um tipo de documento, Passaport ou Identity Card, mas não valida 
+        #se o usuário digitou corretamente, ou escolheu uma opção corretamente, se meteu uma opção vazia ou se escreveu
+        #algo completamente diferente como "nao sei", nesse momento todo input passa, resolva isso
+        #Se fosse um app real, terias sérios problemas em produção, começa já a cortar agora.
         document_type = str(input("Enter your document type(Passport/Identity Card): "))
+
         Document = str(input(f"Enter your {document_type} number: "))
+        #No endereco digitei 123 e ele aceitou
+        #Para te ficar mais fácil, pede por parte
+        #Primeiro pede provincia
+        #Depois pede bairro
+        #Depois pede numeroa da  rua ou SN "sem número"
+        #Depois pede número da casa, em produção isso não passa
+
+
         Address = str(input("Enter your address: "))
         Customer = customer(Name, Address, document_type, Document)
         Creat = Bank.creat_account(Customer)
