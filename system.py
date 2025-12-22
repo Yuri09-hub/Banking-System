@@ -16,7 +16,7 @@ class customer:
         print(f"Province:{self.Province}")
         print(f"Municipality:{self.municipality}")
         print(f"{self.document_type}_ID:{self.document}")
-        print(f"Registration Date: {self.data}")
+        print(f"Registration Date: {self.data.day}/{self.data.month}/{self.data.year}")
 
 
 class Account:
@@ -30,7 +30,10 @@ class Account:
             value = float(value)
             self.balance += value
             return True
-        except ValueError or value <= 0:
+        except value <= 0:
+            print('Error: undefined values')
+            return False
+        except ValueError:
             print('Error: undefined values')
             return False
 
@@ -39,10 +42,13 @@ class Account:
             value = float(value)
             self.balance -= value
             return True
+        except value <= 0:
+            print('Error: undefined values')
+            return False
         except value > self.balance:
             print('Not enough money')
             return False
-        except ValueError or value <= 0:
+        except ValueError:
             print('Error: undefined values')
             return False
 

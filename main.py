@@ -11,7 +11,7 @@ while True:
     print("3 - Withdraw")
     print("4 - Transfer")
     print("5 - View balance")
-    print("6 - View all information")
+    print("6 - View information for all registered accounts. ")
     print("0 - Log out")
     option = input("Choose an option: ")
 
@@ -89,9 +89,11 @@ while True:
         account = Bank.search_account(number)
 
         if account:
+            print("--------------------")
+            print(f"Name: {account.customer.name}")
             account.print_balance()
-            account.customer.print_customer()
-            print(f"Consultation date: {date.today()}")
+            print("--------------------")
+
         else:
             print("Account not found")
 
