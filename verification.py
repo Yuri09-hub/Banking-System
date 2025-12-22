@@ -19,9 +19,5 @@ def Document_verification(doc, document_type):
     return False
 
 
-def whitespace_verification(info):
-    return bool(info.strip())
-
-
 def alpha_verification(info):
     return info.replace(" ", "")

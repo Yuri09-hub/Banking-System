@@ -23,6 +23,7 @@ while True:
         document_type = str(input("Enter your document type(Passport/Identity Card): "))
         while not Document_type_verification(document_type):
             document_type = str(input("Enter your document type(Passport/Identity Card): "))
+
         if document_type == "Passport":
             digit = 8
         else:
@@ -37,7 +38,7 @@ while True:
             Province = str(input("Enter your Province: ")).strip()
 
         municipality = str(input("Enter your Street: ")).strip()
-        while not whitespace_verification(municipality):
+        while not alpha_verification(municipality):
             street = str(input("Enter your  municipality: ")).strip()
 
         Customer = customer(Name, Province,  municipality, document_type, Document)
