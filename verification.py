@@ -2,8 +2,12 @@ def Name_verication(name):
     return name.replace(" ", "").isalpha()
 
 
-def Document_type_verification(document_type):
-    return document_type in ('Passport', 'Identity Card')
+def Document_type_verification(doc):
+    if doc == 'Passport':
+        return True
+    elif doc == 'Identity Card':
+        return True
+    return False
 
 
 def Document_verification(doc, document_type):

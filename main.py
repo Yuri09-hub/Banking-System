@@ -20,11 +20,15 @@ while True:
         while not Name_verication(Name):
             Name = str(input("Enter your full name: ")).lower().capitalize()
 
-        document_type = str(input("Enter your document type(Passport/Identity Card): ")).capitalize
+        document_type = str(input("Enter your document type(Passport/Identity Card): "))
         while not Document_type_verification(document_type):
-            document_type = str(input("Enter your document type(Passport/Identity Card): ")).capitalize()
+            document_type = str(input("Enter your document type(Passport/Identity Card): "))
+        if document_type == "Passport":
+            digit = 8
+        else:
+            digit = 14
 
-        Document = str(input(f"Enter your {document_type} number: ")).strip()
+        Document = str(input(f"Enter your {document_type} number({digit} digits): ")).strip()
         while not Document_verification(Document, document_type):
             Document = str(input(f"Enter your {document_type} number: ")).strip()
 

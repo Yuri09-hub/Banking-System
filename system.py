@@ -30,7 +30,7 @@ class Account:
             value = float(value)
             self.balance += value
             return True
-        except ValueError and value <= 0:
+        except ValueError or value <= 0:
             print('Error: undefined values')
             return False
 
@@ -42,7 +42,7 @@ class Account:
         except value > self.balance:
             print('Not enough money')
             return False
-        except ValueError and value <= 0:
+        except ValueError or value <= 0:
             print('Error: undefined values')
             return False
 
