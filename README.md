@@ -107,3 +107,7 @@ The system validates all user input before creating accounts:
 
 0 - Exit
 
+⭐ Final Notes
+
+This project was developed for learning purposes and portfolio presentation.
+Although it is a console application, the architecture is inspired by real-world banking systems and is designed for scalability and future expansion.
