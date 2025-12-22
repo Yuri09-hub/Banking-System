@@ -3,17 +3,18 @@ from datetime import datetime
 
 
 class customer:
-    def __init__(self, name, Province, street, document_type, document):
+    def __init__(self, name, Province, municipality, document_type, document):
         self.name = name
         self.Province = Province
-        self.street = street
+        self.municipality = municipality
         self.document_type = document_type
         self.document = document
         self.data = datetime.today()
 
     def print_customer(self):
         print(f"Name: {self.name}")
-        print(f"Address:{self.Province}")
+        print(f"Province:{self.Province}")
+        print(f"Municipality:{self.municipality}")
         print(f"{self.document_type}_ID:{self.document}")
         print(f"Registration Date: {self.data}")
 

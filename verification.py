@@ -20,4 +20,4 @@ def whitespace_verification(info):
 
 
 def alpha_verification(info):
-    return info.replace(" ", "").isalpha()
+    return info.replace(" ", "")

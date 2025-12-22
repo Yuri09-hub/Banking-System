@@ -1,4 +1,5 @@
 from system import *
+from verification import *
 from datetime import datetime
 
 date = datetime.today()
@@ -16,12 +17,26 @@ while True:
 
     if option == "1":
         Name = str(input("Enter your full name: ")).lower().capitalize()
+        while not Name_verication(Name):
+            Name = str(input("Enter your full name: ")).lower().capitalize()
 
-        document_type = str(input("Enter your document type(Passport/Identity Card): "))
-        Document = str(input(f"Enter your {document_type} number: "))
+        document_type = str(input("Enter your document type(Passport/Identity Card): ")).capitalize
+        while not Document_type_verification(document_type):
+            document_type = str(input("Enter your document type(Passport/Identity Card): ")).capitalize()
 
+        Document = str(input(f"Enter your {document_type} number: ")).strip()
+        while not Document_verification(Document, document_type):
+            Document = str(input(f"Enter your {document_type} number: ")).strip()
 
-        Customer = customer(Name, , document_type, Document)
+        Province = str(input("Enter your Province: ")).strip()
+        while not alpha_verification(Province):
+            Province = str(input("Enter your Province: ")).strip()
+
+        municipality = str(input("Enter your Street: ")).strip()
+        while not whitespace_verification(municipality):
+            street = str(input("Enter your  municipality: ")).strip()
+
+        Customer = customer(Name, Province,  municipality, document_type, Document)
         Creat = Bank.creat_account(Customer)
         print("Account created successfully!")
         Creat.print_balance()
